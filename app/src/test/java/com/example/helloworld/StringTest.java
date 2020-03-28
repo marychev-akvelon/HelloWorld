@@ -6,6 +6,6 @@ import org.junit.Test;
 public class StringTest {
     @Test
     public void string_CorrectEmailSimple_ReturnsTrue() {
-        assertEquals(4, 2 + 2);
+        assertEquals(4, 2 + 3);
     }
 }
