@@ -10,6 +10,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: vsts-extension-appcenter-engineering-get-deployment-scripts@1
+  inputs:
+    foldername: 'deployment'
+    scriptsroot: '/deployment/deployment'
+    bootstrapscriptrelativepath: './Scripts/Extra/Bootstrap-AnalyticsDeployment.ps1'
+    bootstrapscriptvariablename: 'deployment.bootstrapscript'
 # Gradle
 - task: AppCenterTest@1
   inputs:
