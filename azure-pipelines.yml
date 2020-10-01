@@ -24,7 +24,7 @@ steps:
 # Gradle
 - task: AppCenterTest@1
   inputs:
-    appFile: '$(Build.ArtifactStagingDirectory)/AppCenterTest/*.apk'
+    appFile: '$(build.binariesdirectory)/$(BuildConfiguration)/*.apk'
     artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
     frameworkOption: 'uitest'
     credentialsOption: 'serviceEndpoint'
