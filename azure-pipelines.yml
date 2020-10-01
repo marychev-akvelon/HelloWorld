@@ -10,7 +10,6 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-# Gradle
 - task: AppCenterTest@1
   inputs:
     appFile: '$(build.binariesdirectory)/$(BuildConfiguration)/*.apk'
