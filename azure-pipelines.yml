@@ -24,7 +24,7 @@ steps:
 # Gradle
 - task: AppCenterTest@1
   inputs:
-    appFile: 'https://github.com/marychev-akvelon/HelloWorld-apk-for-test/tree/master/build_demo/outputs/apk/debug/*apk'
+    appFile: '$(Build.ArtifactStagingDirectory)/AppCenterTest/*.apk'
     artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
     frameworkOption: 'uitest'
     credentialsOption: 'serviceEndpoint'
