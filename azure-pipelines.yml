@@ -12,7 +12,7 @@ pool:
 steps:
 - task: AppCenterTest@1
   inputs:
-    appFile: '$(build.binariesdirectory)/$(BuildConfiguration)/*.apk'
+    appFile: 'HelloWorld-apk-for-test/tree/master/build_demo/outputs/apk/debug/*.apk'
     artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
     frameworkOption: 'uitest'
     credentialsOption: 'serviceEndpoint'
