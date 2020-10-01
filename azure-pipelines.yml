@@ -1,0 +1,36 @@
+
+# Build your Java project and run tests with Gradle using a Gradle wrapper script.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: Gradle@2
+  inputs:
+    workingDirectory: ''
+    gradleWrapperFile: 'gradlew'
+    gradleOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    tasks: 'build'
+
+# Gradle
+- task: AppCenterTest@1
+  inputs:
+    appFile: 'https://github.com/marychev-akvelon/HelloWorld-apk-for-test/tree/master/build_demo/outputs/apk/debug/app-debug.apk'
+    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
+    frameworkOption: 'uitest'
+    credentialsOption: 'serviceEndpoint'
+    serverEndpoint: 'App Center Test'
+    appSlug: 'james-ax-I'
+    devices: 'e8f4bd0f'
+    localeOption: 'en_US'
+    showDebugOutput: true
